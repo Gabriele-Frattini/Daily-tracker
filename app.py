@@ -56,8 +56,8 @@ def daily_tracker():
 
     # append new data to old data
 
-    for i in todays_data.keys():
-        data = old_data.append(todays_data[i])
+    new_data = new_data.loc[:, [not i for i in new_data.columns.duplicated()]]
+    data = old_data.append(new_data)
 
     # Upload back to the dbx app's folder
 
